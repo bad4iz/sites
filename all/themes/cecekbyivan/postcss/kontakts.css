@@ -1,0 +1,151 @@
+@charset "UTF-8";
+h1.nodetit {
+  text-align: center; }
+
+.about {
+  padding: 5px; }
+  .about a {
+    text-decoration: none; }
+  .about h2 {
+    overflow: hidden;
+    color: #3a3a3a;
+    text-align: left;
+    font-family: "Philosopher";
+    margin: 0;
+    padding: 10px 0; }
+  .about > h2 {
+    text-indent: 2em;
+    cursor: pointer;
+    color: #e28755;
+    text-shadow: 1px 1px 1px rgba(129, 48, 4, 0.3);
+    border-bottom: 1px solid; }
+  .about.offClick > h2 {
+    color: #e28755;
+    font-size: 2em; }
+  .about.wasClick > h2 {
+    text-indent: 3em; }
+  .about.onClick > h2 {
+    text-indent: 1px;
+    text-align: center;
+    font-size: 2.5em;
+    border-bottom: none; }
+  .about .content {
+    animation-name: fadeIn;
+    padding: 10px 0 30px;
+    border-bottom: 1px solid #e28755;
+    border-top: 1px solid #e28755; }
+  .about.cart .shuffle {
+    display: block; }
+  .about .content {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset; }
+    .about .content .view.view-meneger .view-content .views-row {
+      display: flex;
+      height: 310px;
+      flex-flow: column wrap;
+      justify-content: flex-start;
+      padding: 10px;
+      margin-bottom: 10px; }
+      .about .content .view.view-meneger .view-content .views-row .views-field-field-meneger-img {
+        flex-basis: 100%;
+        margin-right: 30px;
+        align-content: center;
+        margin-top: 3em; }
+        .about .content .view.view-meneger .view-content .views-row .views-field-field-meneger-img img {
+          box-shadow: 1px 3px 11px 0 #1d120c;
+          border: 1px solid #69412b; }
+      .about .content .view.view-meneger .view-content .views-row .views-field-name {
+        margin-top: 20px;
+        margin-bottom: 40px; }
+      .about .content .view.view-meneger .view-content .views-row .views-field-field-meneger-city {
+        margin-left: 30px;
+        padding: 10px;
+        width: 210px; }
+        .about .content .view.view-meneger .view-content .views-row .views-field-field-meneger-city .field-content .item-list ul {
+          list-style: none; }
+          .about .content .view.view-meneger .view-content .views-row .views-field-field-meneger-city .field-content .item-list ul li {
+            font-size: 15px;
+            position: relative;
+            display: table;
+            border-bottom: 1px solid rgba(226, 135, 85, 0.5); }
+            .about .content .view.view-meneger .view-content .views-row .views-field-field-meneger-city .field-content .item-list ul li:after {
+              /* ╨в╤Г╤В ╤Г╨║╨░╨╖╨░╤В╤М ╨╜╤Г╨╢╨╜╤Л╨╣ ╤Б╨╕╨╝╨▓╨╛╨╗ */
+              color: #e28755;
+              content: "тЬФ";
+              position: absolute;
+              top: 0;
+              left: -20px; }
+    .about .content .view-departments-to-communicate.view-id-departments_to_communicate .view-content {
+      display: flex;
+      flex-flow: row wrap; }
+      .about .content .view-departments-to-communicate.view-id-departments_to_communicate .view-content .views-row {
+        padding: 10px; }
+        .about .content .view-departments-to-communicate.view-id-departments_to_communicate .view-content .views-row .views-field-name h2 {
+          font-size: 1.8em;
+          text-shadow: 0 0 1px #ededed; }
+        .about .content .view-departments-to-communicate.view-id-departments_to_communicate .view-content .views-row div div {
+          color: #939393;
+          padding: 0;
+          border-bottom: 1px solid #e28755;
+          border-top: 1px solid #e28755;
+          margin: 5px 0; }
+          .about .content .view-departments-to-communicate.view-id-departments_to_communicate .view-content .views-row div div p {
+            margin: 0;
+            padding: 0; }
+    .about .content .view-leader .view-content .views-row {
+      height: 235px;
+      padding: 10px;
+      margin-bottom: 10px; }
+      .about .content .view-leader .view-content .views-row .views-field {
+        margin-bottom: 10px; }
+      .about .content .view-leader .view-content .views-row .views-field-field-meneger-img {
+        float: left;
+        margin-right: 30px; }
+        .about .content .view-leader .view-content .views-row .views-field-field-meneger-img img {
+          box-shadow: 1px 3px 11px 0 #1d120c;
+          border: 1px solid #69412b; }
+      .about .content .view-leader .view-content .views-row .views-field-name {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center; }
+      .about .content .view-leader .view-content .views-row .views-field-field-meneger-telefon {
+        padding-left: 15em;
+        display: flex; }
+      .about .content .view-leader .view-content .views-row .views-field-field-meneger-telefon-fax {
+        padding-left: 15em;
+        display: flex; }
+      .about .content .view-leader .view-content .views-row .views-field-field-meneger-email {
+        padding-left: 15em;
+        display: flex; }
+    .about .content .view-official-representation .view-filters .views-exposed-widgets.clearfix {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 3em;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e28755; }
+    .about .content .view-official-representation .view-content {
+      padding: 0 30px; }
+      .about .content .view-official-representation .view-content .views-row .views-field-title {
+        float: right; }
+      .about .content .view-official-representation .view-content .views-row .views-field-field-of-emblem {
+        float: left;
+        margin-right: 30px; }
+      .about .content .view-official-representation .view-content .views-row .views-field-field-of-telefon {
+        display: table;
+        padding-left: 10px; }
+      .about .content .view-official-representation .view-content .views-row .views-field-field-of-email {
+        display: table;
+        padding-left: 10px;
+        border-bottom: 1px solid #e28755;
+        margin-bottom: 20px;
+        padding-right: 40px;
+        padding-bottom: 5px; }
+      .about .content .view-official-representation .view-content .views-row .views-field-field-of-address {
+        display: table; }
+        .about .content .view-official-representation .view-content .views-row .views-field-field-of-address .views-label-field-of-address {
+          border-bottom: 1px solid #e28755;
+          padding-bottom: 3px;
+          margin-bottom: 5px; }
+
+/*# sourceMappingURL=kontakts.css.map */

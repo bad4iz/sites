@@ -1,0 +1,113 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: bad4iz
+ * Date: 23.08.2016
+ * Time: 16:24
+ */
+
+
+/**
+ * ненадо этого делать
+ * Отсутствие хранения сессий для гостей в Drupal 7
+ * Аватар пользователя КомандирДрупала
+ * Оставлен КомандирДрупала Втр, 03/26/2013 - 07:50
+ *
+ * По умолчанию Drupal 7 не всегда сохраняет сессии для гостей на сайте. Например, из-за этого невозможно пользоваться корзиной не авторизованному пользователю.
+ *
+ * Есть не сложное решение для включения сессий для гостей:
+ *
+ * 1. Ставим модуль session_api
+ *
+ * 2. В любом нашем модуле (или новом) делаем hook_init() с содержимым*
+ */
+//function geoBase_init(){
+//    $sid = session_api_get_sid();
+//    header('X-Session-Api-Sid: ' . $sid);
+//    $session_id = db_query("SELECT session_id FROM {session_api} WHERE sid = :sid", array(':sid' => $sid))->fetchField();
+//    header('X-Session-Api-Session-Id: ' . $session_id);
+//}
+
+
+
+
+
+function geoBase_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'webform_client_form_127') {
+
+//            $form['submitted']['gorod']['#default_value'] = '' ;
+            $form['#submit'][] = '_webform_form_alter_submit';
+
+
+    }
+}
+
+
+/**
+ *  вызывается нажатием на кнопку submit в форме и обрабатывем ее отправку
+ *
+ * @param $form
+ * @param $form_state
+ *
+ *
+ *
+ */
+function _webform_form_alter_submit($form, &$form_state) {
+
+
+    $tid = substr($form_state['values']['submitted']['1'], 4); //получаес tid
+       //таксономия Город
+    $parent = taxonomy_get_children('tid_48' , 6);
+      //город в таксономии
+    $city = $parent["$tid"] -> name;
+     //телефон в таксономии
+    $phone = $parent["$tid"] -> field_phone_city;
+    $phone = $phone[und][0][value];
+
+
+
+      //тут сохраняем в сессию
+    $_SESSION['smart_ip']['location']['city'] = $city;
+    $_SESSION['smart_ip']['location']['phone'] = $phone;
+
+//    $i=0;
+//    foreach($parent as $tax){
+//       $i++;
+//        $city = $tax -> name;
+//        $telephone = $tax->field_telefone;
+//        $telephone = $telephone[und][0][value];
+//
+//
+//        $_SESSION['smart_ip']['location']['$parent']["$i"]['$city'] = $city;
+//        $_SESSION['smart_ip']['location']['$parent']["$i"]['$telephone'] = $telephone;
+//    };
+//    $_SESSION['smart_ip']['$parent']["$tid"] = $parent["$tid"];
+
+
+
+    //  если номкр телефона равен 01 то сесия сбрасывается
+    if( $_SESSION['smart_ip']['location']['phone'] == 01){
+        unset($_SESSION['smart_ip']);
+    }
+
+//    global $user;
+//    $location = $_SESSION['smart_ip']['location'];
+//    smart_ip_set_location_data($user, $location);
+
+}
+
+//<script>
+////jQuery(".popups-close").click();
+//location.reload();
+//</script>
+
+
+//if (isset($_SESSION['towns'])) {
+//    print 'p Ваш город: ' . 'a href="' . base_path() . 'modal_forms/nojs/webform/357" class="ctools-use-modal ctools-modal-modal-popup-medium choose_city" '.$_SESSION['towns'].'/a';
+//    $class = '';
+//}
+//else{
+//    $class = 'first_time';
+//    print 'Ваш город: ' . ' a href="' . base_path() . 'modal_forms/nojs/webform/357" class="ctools-use-modal ctools-modal-modal-popup-medium choose_city first_time" выбор города /a';
+//}
+//

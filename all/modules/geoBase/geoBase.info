@@ -1,0 +1,3 @@
+name = geoBase
+description = Модуль для вывода города
+core = 7.x

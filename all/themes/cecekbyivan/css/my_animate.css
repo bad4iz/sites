@@ -1,0 +1,36 @@
+.hidden_animate{
+    opacity:0;
+}
+.visible_animate{
+    opacity:1;
+}
+.post1{
+    -webkit-animation-delay: 0.5s; /*задержка анимации перед запуском*/
+    animation-delay: 0.5s;/*задержка анимации перед запуском*/
+}
+.post2{
+    /*-webkit-animation-delay: 0.5s;*/
+    /*animation-delay: 0.5s;*/
+}
+.post3{
+    -webkit-animation-delay: 0.2s; /*задержка анимации перед запуском*/
+    animation-delay: 0.2s;/*задержка анимации перед запуском*/
+}
+
+
+.advantages1{
+    -webkit-animation-delay: 0.3s;/*задержка анимации перед запуском*/
+    animation-delay: 0.3s;/*задержка анимации перед запуском*/
+}
+.advantages2{
+    -webkit-animation-delay:  0.5s;/*задержка анимации перед запуском*/
+    animation-delay: 0.5s;/*задержка анимации перед запуском*/
+}
+.advantages3{
+    -webkit-animation-delay: 0.6s;/*задержка анимации перед запуском*/
+    animation-delay: 0.6s;/*задержка анимации перед запуском*/
+}
+.advantages4{
+    -webkit-animation-delay: 0.2s;/*задержка анимации перед запуском*/
+    animation-delay: 0.2s;/*задержка анимации перед запуском*/
+}

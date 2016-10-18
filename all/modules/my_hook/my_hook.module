@@ -1,0 +1,22 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: bad4iz
+ * Date: 23.08.2016
+ * Time: 16:24
+ */
+
+
+/**
+ *Если вы выводите кнопку "Добавить в корзину" при помощи Views, то по умолчанию текст на ней будет "Add to Cart" или
+ * "Добавить в корзину", если вы хотите изменить это значение, то придется использовать hook_form_alter()
+ * с commerce_form_callback():
+ *
+ */
+
+function my_hook_form_alter(&$form, &$form_state, $form_id) {
+        //dpm($form_id);
+        if (commerce_form_callback($form_id, $form_state) == "commerce_cart_add_to_cart_form") {
+            $form['submit']['#value'] = t('в корзину');
+        }
+    }

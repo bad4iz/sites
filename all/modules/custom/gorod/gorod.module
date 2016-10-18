@@ -1,0 +1,29 @@
+<?php
+ /**
+  * @file
+  * Build page and form for calculator.
+  */
+  function _form_alter(&$form, $form_state, $form_id) {
+if ($form_id == 'webform_client_form_125') {
+    if ($_SESSION['smart_ip']['location']) {
+      $form['submitted']['gorod']['#default_value'] = 'tid_' . $_SESSION['smart_ip']['location']['zip'];
+      $form['#submit'][] = '_webform_city_submit';
+    }
+  }
+}
+ 
+function _webform_city_submit($form, $form_state) {
+  //тут сохраняем в сессию
+  $tid = substr($form_state['values']['submitted_tree']['gorod'], 4); //because 'tid_X';
+  if ($_SESSION['smart_ip']['zip'] != $tid) {
+    //тут перезаписываем
+    $_SESSION['smart_ip']['zip'] = $tid;
+    $_SESSION['smart_ip']['city'] = db_select('taxonomy_term_data', 'terms')
+          ->fields('terms', array('name'))
+          ->condition('tid', $tid, '=')
+          ->execute()->fetchField();
+    global $user;
+    $location = $_SESSION['smart_ip'];
+    smart_ip_set_location_data($user, $location); 
+  }
+}

@@ -1,0 +1,12 @@
+name = Word Link exchange
+description = Provides a possibility to import/export words.
+core = 7.x
+dependencies[] = word_link
+dependencies[] = taxonomy
+
+; Information added by Drupal.org packaging script on 2016-03-20
+version = "7.x-2.21"
+core = "7.x"
+project = "word_link"
+datestamp = "1458464640"
+

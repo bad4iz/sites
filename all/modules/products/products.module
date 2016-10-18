@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: bad4iz
+ * Date: 08.09.2016
+ * Time: 13:45
+ */
+/**
+ *
+ *
+ *
+ * @return mixed  возвращает массив  товара в удобоваримом виде
+ *
+ * sku - атрибут товара
+ * amout - цена
+ * currency_code - код валюты
+ *
+ */
+function all_products(){
+    $products = entity_load('commerce_product');
+$i=1;
+    foreach ($products as $product) {
+
+        $title = $product->title;
+        $all_product[$title]['sku'] = $product->sku;
+        $all_product[$title]['sku'] = $product->type;
+        $all_product[$title]['amout'] = $product->commerce_price['und']['0']['amount'] / 100;
+        $all_product[$title]['currency_code'] = $product -> commerce_price['und']['0']['currency_code'];
+
+$i++;
+    }
+    return  $all_product;
+}
+
+
+$all_products = all_products();
+
+
+
+/*
+
+echo "<pre>";
+print_r(all_products());
+echo "</pre>";*/

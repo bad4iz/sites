@@ -1,0 +1,3 @@
+name = my Hook
+description = Модуль для хуков
+core = 7.x
